@@ -1,6 +1,6 @@
 from math import *
 
-# Exercicio 1
+# Exercício 1
 """ pontoA=[]
 pontoB=[]
 pontoC=[]
@@ -38,67 +38,48 @@ elif(prodEscalar<0):
 elif(prodEscalar==0):
   print('O ponto C não pertence a reta.') """
 
-# Exercicio 2
-""" plano = []
+# Exercício 2
+plano = []
 
 print("Equação Geral do Plano: ax + by + cz + d = 0")
 for i in range(4):
-  plano.append(int(input(f"Digite o valor de {chr(97+i)}: ")))
-print('\n')
+    plano.append(float(input(f"Digite o valor de {chr(97+i)}: ")))
+print("\n")
 pontoX = []
 vetorU = []
 
 print("Equação da Reta: X = A + t*u")
 print("Coordenadas do ponto A:")
 for i in range(3):
-  pontoX.append(int(input(f"Digite a {i+1}a. coordenada: ")))
-print('\n')
+    pontoX.append(float(input(f"Digite a {i+1}a. coordenada: ")))
+print("\n")
 print("Coordenadas do vetor u:")
 for i in range(3):
-  vetorU.append(int(input(f"Digite a {i+1}a. coordenada: ")))
-print('\n')
+    vetorU.append(float(input(f"Digite a {i+1}a. coordenada: ")))
+print("\n")
 prodEscalar = sqrt(
   (
-    pow((plano[0] - vetorU[0]), 2)
-    + pow((plano[1] - vetorU[1]), 2)
-    + pow((plano[2] - vetorU[2]), 2)
+    pow((vetorU[0] - plano[0]), 2)
+    + pow((vetorU[1] - plano[1]), 2)
+    + pow((vetorU[2] - plano[2]), 2)
   )
 )
 
-# plano[0]*(pontoX[0]+vetorU[0]t)+plano[1]*(pontoX[1]+vetorU[1]t)+plano[2]*(pontoX[2]+vetorU[2]*t)=0
+beta = - ((plano[0]  * pontoX[0]) + (plano[1] * pontoX[1]) + (plano[2] * pontoX[2])) / ((plano[0] * vetorU[0]) + (plano[1] * vetorU[1]) + (plano[2] * vetorU[2]))
+print(f"beta: {beta}")
 
-# ((plano[0]*pontoX[0])+(plano[0]*vetorU[0]t)) + ((plano[1]*pontoX[1])+(plano[1]*vetorU[1]t)) + ((plano[2]*pontoX[2])+(plano[2]*vetorU[2]t)) = plano[3]
+teste = pontoX[0]+(vetorU[0]*beta)
+print(f'teste: {teste}')
 
-# ((plano[0]*pontoX[0]) + (plano[1]*pontoX[1]) + (plano[2]*pontoX[2])) + ((plano[0]*vetorU[0]t) + (plano[1]*vetorU[1]t) + (plano[2]*vetorU[2]t)) = plano[3]
-
-# ((plano[0]*vetorU[0])*t) + ((plano[1]*vetorU[1]) * t) + ((plano[2]*vetorU[2]) * t) = plano[3] - ((plano[0]*pontoX[0]) + (plano[1]*pontoX[1]) + (plano[2]*pontoX[2]))
-
-# t = (plano[3] - ((plano[0]*pontoX[0]) + (plano[1]*pontoX[1]) + (plano[2]*pontoX[2]))) / ((plano[0]*vetorU[0]) + (plano[1]*vetorU[1]) * (plano[2]*vetorU[2]))
-
-# 2+2t+2+8t-3+2t = 0
-# 1+12t = 0
-# t=-1/12
-
-print(f"prodEscalar {prodEscalar}")
-
-print('\n')
-
-if prodEscalar != 0:
-  conta = (
-    plano[3]
-    - ((plano[0] * pontoX[0]) + (plano[1] * pontoX[1]) + (plano[2] * pontoX[2]))
-  ) / ((plano[0] * vetorU[0]) + (plano[1] * vetorU[1]) * (plano[2] * vetorU[2]))
-
+if prodEscalar == 0:
+  print("\nReta Paralela ao Plano")
+else:
   print("Ponto de Intersecção:")
   print(
-    f"x = {round(pontoX[0]+(vetorU[0]*conta), 2)}, y = {round(pontoX[1]+(vetorU[1]*conta), 2)}, z = {round(pontoX[2]+(vetorU[2]*conta), 2)}"
+    f"x = {round(pontoX[0]+(vetorU[0]*beta), 2)}, y = {round(pontoX[1]+(vetorU[1]*beta), 2)}, z = {round(pontoX[2]+(vetorU[2]*beta), 2)}"
   )
-elif prodEscalar == 0:
-  print("A reta esta contida no plano")
-else:
-  print("A reta esta e paralela ao plano") """
 
-# Exercicio 3
+# Exercício 3
 """ pontoA = []
 pontoB = []
 pontoC = []
@@ -125,9 +106,25 @@ for i in range(len(pontoA)):
   vetorAB.append(sub1)
   vetorAC.append(sub2)
 
-print("Equação Geral do plano:")
-print("ax + by + cz + d = 0")
-print("onde:")
-print(
-  f"a = {round((vetorAB[1]*vetorAC[2]) - (vetorAC[2]*vetorAB[1]))}, b = {round((vetorAB[2]*vetorAC[0]) - (vetorAC[0]*vetorAB[2]))}, c = {round((vetorAB[0]*vetorAC[1]) - (vetorAC[1]*vetorAB[0]))} e d = {round((pontoA[0]*((vetorAB[1]*vetorAC[2]) - (vetorAC[2]*vetorAB[1]))) + (pontoA[1]*((vetorAB[2]*vetorAC[0]) - (vetorAC[0]*vetorAB[2]))) + (pontoA[2]*((vetorAB[0]*vetorAC[1]) - (vetorAC[1]*vetorAB[0]))))}"
-) """
+print(f"vetorAB: {vetorAB}")
+print(f"vetorAC: {vetorAC}")
+
+print(f"a = {round((vetorAB[1]*vetorAC[2])-(vetorAB[2]*vetorAC[1]), 2)}")
+a = round((vetorAB[1]*vetorAC[2])-(vetorAB[2]*vetorAC[1]), 2)
+print(f"b = {round((vetorAB[2]*vetorAC[0])-(vetorAB[0]*vetorAC[2]), 2)}")
+b = round((vetorAB[2]*vetorAC[0])-(vetorAB[0]*vetorAC[2]), 2)
+print(f"c = {round((vetorAB[0]*vetorAC[1])-(vetorAB[1]*vetorAC[0]), 2)}")
+c = round((vetorAB[0]*vetorAC[1])-(vetorAB[1]*vetorAC[0]), 2)
+print(f"d = {round((pontoA[0]*(vetorAB[1] * vetorAC[2]) + pontoA[1] * (vetorAB[2] * vetorAC[0]) + pontoA[2] * (vetorAC[1] * vetorAB[0])) - (pontoA[0]*(vetorAB[1] * vetorAC[0]) + pontoA[1] * (vetorAB[0] * vetorAC[2]) + pontoA[2] * (vetorAC[1] * vetorAB[2])) , 2)}")
+d = round((a*pontoA[0]) + (b*pontoA[1]) + (c*pontoA[2]), 2)
+
+if a < 0:
+  a *= -1
+  b *= -1
+  c *= -1
+  print("Equação Geral do plano:")
+  print("ax + by + cz + d = 0")
+  print("onde:")
+  print(f"a = {a}0, b = {b}0, c = {c}0 e d = {d}0")
+elif a == 0 and b == 0 and c == 0 and d == 0:
+	print("Dados Incorretos") """
