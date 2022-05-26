@@ -98,16 +98,9 @@ for i in range(len(pontoA)):
   vetorAB.append(sub1)
   vetorAC.append(sub2)
 
-print(f"vetorAB: {vetorAB}")
-print(f"vetorAC: {vetorAC}")
-
-print(f"a = {round((vetorAB[1]*vetorAC[2])-(vetorAB[2]*vetorAC[1]), 2)}")
 a = round((vetorAB[1]*vetorAC[2])-(vetorAB[2]*vetorAC[1]), 2)
-print(f"b = {round((vetorAB[2]*vetorAC[0])-(vetorAB[0]*vetorAC[2]), 2)}")
 b = round((vetorAB[2]*vetorAC[0])-(vetorAB[0]*vetorAC[2]), 2)
-print(f"c = {round((vetorAB[0]*vetorAC[1])-(vetorAB[1]*vetorAC[0]), 2)}")
 c = round((vetorAB[0]*vetorAC[1])-(vetorAB[1]*vetorAC[0]), 2)
-print(f"d = {round((pontoA[0]*(vetorAB[1] * vetorAC[2]) + pontoA[1] * (vetorAB[2] * vetorAC[0]) + pontoA[2] * (vetorAC[1] * vetorAB[0])) - (pontoA[0]*(vetorAB[1] * vetorAC[0]) + pontoA[1] * (vetorAB[0] * vetorAC[2]) + pontoA[2] * (vetorAC[1] * vetorAB[2])) , 2)}")
 d = round((a*pontoA[0]) + (b*pontoA[1]) + (c*pontoA[2]), 2)
 
 if a < 0:
